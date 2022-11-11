@@ -617,7 +617,7 @@ static void Led_Task(void *parameter) {
                                     if (System_AreControlsLocked()) {
                                         leds[Led_Address(led)] = CRGB::Red;
                                     } else if (!gPlayProperties.pausePlay) { // Hue-rainbow
-                                        leds[Led_Address(led)].setHue((uint8_t)(85 - ((double)90 / NUM_LEDS) * led));
+                                        leds[Led_Address(led)].setHue((uint8_t)(((float)PROGRESS_HUE_END - (float)PROGRESS_HUE_START) / (NUM_LEDS-1) * led + PROGRESS_HUE_START));
                                     }
                                 }
                             }
